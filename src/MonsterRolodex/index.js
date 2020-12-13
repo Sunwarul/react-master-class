@@ -5,7 +5,7 @@ import './search-box/SearchBox.component';
 import './navbar/Navbar'
 import Navbar from './navbar/Navbar';
 
-class App extends React.Component {
+export class MonsterRolodex extends React.Component {
 
   constructor() {
     super();
@@ -28,7 +28,9 @@ class App extends React.Component {
   handleChange = event => {
     console.log(event.target.value)
   }
-
+  showMessage() {
+    return alert('Show!')
+  }
   render() {
     const { searchField, monsters } = this.state;
     const filteredMonsters = monsters.filter(monster =>
@@ -55,5 +57,3 @@ class App extends React.Component {
     );
   };
 }
-
-export default App;
