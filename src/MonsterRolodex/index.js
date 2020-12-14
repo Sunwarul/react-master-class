@@ -7,8 +7,8 @@ import Navbar from './navbar/Navbar';
 
 export class MonsterRolodex extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       monsters: [],
       searchField: '',

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 
 import './MonsterRolodex/App.css'
-import { MonsterRolodex } from './MonsterRolodex/index'
+import { CrawnClothing } from './CrawnClothing'
 
 
-ReactDOM.render(<MonsterRolodex />, document.getElementById('root'));
+ReactDOM.render(<CrawnClothing />, document.getElementById('root'));
