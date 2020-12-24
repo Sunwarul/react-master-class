@@ -1,8 +1,15 @@
 import React from 'react'
-import { HomePage } from './pages/homepage/HomePage.component'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HomePage } from './pages/homepage/homepage.component'
 
-export const CrawnClothing = () => {
+const App = () => {
     return (
-        <HomePage />
+        <Router>
+            <Switch>
+                <Route exact path='/' component={HomePage} />
+            </Switch>
+        </Router>
     )
 }
+
+export default App;
