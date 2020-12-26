@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './CrawnClothing/App';
-// import { MonsterRolodex } from './MonsterRolodex/App';
+// import App from './MonsterRolodex/App';
 
 /**
  * Render the app you need here
