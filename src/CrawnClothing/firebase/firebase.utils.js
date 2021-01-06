@@ -31,9 +31,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         } catch (error) {
             console.log('Error on creating user: ', error.message);
         }
-    } else {
-        console.log('User ' + userAuth.displayName + ' Already singed in');
     }
+    return userRef;
 }
 
 firebase.initializeApp(config);
