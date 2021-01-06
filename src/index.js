@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './CrawnClothing/App';
+import { Provider } from 'react-redux';
+import store from './CrawnClothing/redux/store';
+
 // import App from './MonsterRolodex/App';
 
 /**
@@ -8,4 +11,9 @@ import App from './CrawnClothing/App';
  * Just import the ./AppName/App file and change the component name in the render method.
  */
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    ,
+    document.getElementById('root'));
