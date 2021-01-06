@@ -19,6 +19,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     if (!snapShot.exists) {
         const { displayName, email } = userAuth;
+        await console.log('Trying for user: ', displayName);
         const createdAt = new Date();
         try {
             await userRef.set({
@@ -27,7 +28,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 createdAt,
                 ...additionalData
             });
-            console.log('Created user: ', displayName);
         } catch (error) {
             console.log('Error on creating user: ', error.message);
         }

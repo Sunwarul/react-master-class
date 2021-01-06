@@ -34,7 +34,7 @@ class SignIn extends React.Component {
                         type='email'
                         handleChange={this.handleChange}
                         label="Email"
-                        placeholder='Enter Your Email'
+                        placeholder='Email'
                         value={this.state.email}
                         required
                     />
@@ -44,7 +44,7 @@ class SignIn extends React.Component {
                         type='password'
                         handleChange={this.handleChange}
                         label='Password'
-                        placeholder='Enter Your Password'
+                        placeholder='Password'
                         value={this.state.password}
                         required
                     />
