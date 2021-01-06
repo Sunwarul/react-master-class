@@ -1,29 +1,35 @@
 import React from 'react'
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
-import { CustomButton } from '../custom-button/cutom-button.component';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { CustomButton } from '../custom-button/custom-button.component';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            email: '',
             password: ''
         }
     }
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
-        this.setState({ email: '', password: '' });
-        // alert(`${this.state.email} ${this.state.password}`)
+        const { email, password } = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({ email: '', password: '' });
+        } catch (err) {
+            console.error(err);
+        }
     }
     handleChange = event => {
-        const { value, name } = event.target;
+        const { name, value } = event.target;
         this.setState({ [name]: value })
-        console.log(this.state.name + ' + ' + this.state.password)
+        console.log(`${name} ${value}`)
     }
     render() {
+        const { email, password } = this.state;
         return (
             <div className='sign-in'>
                 <h1>Sign-in</h1>
@@ -35,7 +41,7 @@ class SignIn extends React.Component {
                         handleChange={this.handleChange}
                         label="Email"
                         placeholder='Email'
-                        value={this.state.email}
+                        value={email}
                         required
                     />
 
@@ -45,7 +51,7 @@ class SignIn extends React.Component {
                         handleChange={this.handleChange}
                         label='Password'
                         placeholder='Password'
-                        value={this.state.password}
+                        value={password}
                         required
                     />
                     <CustomButton type='submit'>
