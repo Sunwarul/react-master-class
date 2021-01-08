@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from '../../assets/4.3 crown.svg.svg';
 import './header.scss';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon.component';
 
 const Header = ({ currentUser }) => (
     <header className="header">
@@ -17,13 +18,14 @@ const Header = ({ currentUser }) => (
             {
                 currentUser ?
                     <Link onClick={() => auth.signOut()} className='option' to=''>
-                        LOGOUT ({currentUser.displayName})
+                        LOGOUT
                     </Link>
                     :
                     <Link to='/sign-in'>
                         LOGIN
                     </Link>
             }
+            <CartIcon />
         </div>
     </header>
 )
