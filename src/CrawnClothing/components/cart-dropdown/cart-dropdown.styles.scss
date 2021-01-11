@@ -1,7 +1,8 @@
 .cart-dropdown-wrapper {
   position: absolute;
-  width: 240px;
-  height: 340px;
+  width: 340px;
+  height: auto;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
   padding: 20p;
@@ -10,12 +11,27 @@
   top: 90px;
   right: 40px;
   z-index: 5;
-
+  .title {
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px 5px;
+  }
+  .checkout-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
   .cart-items {
-    height: 240px;
+    height: 350px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
+    padding: 20px;
+    margin-bottom: 30px;
   }
 
   button {
