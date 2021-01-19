@@ -2,9 +2,9 @@ import React from 'react';
 import './checkout-item.styles.scss';
 import { connect } from 'react-redux';
 import {
-    addItemToCart,
     decreaseProductCountAction,
-    removeItemFromCartAction
+    removeItemFromCartAction,
+    increaseProductCountAction
 } from '../../redux/cart/cart.actions';
 
 
@@ -18,20 +18,9 @@ const CheckoutItem = ({ cartItem, removeItemAction, increaseProductQuantity,
             </div>
             <span className="name">{name}</span>
             <span className="quantity">
-                <div
-                    className="arrow"
-                    onClick={() => decreaseProductQuantity(cartItem)}
-                >
-                    &#10094;
-            </div>
+                <span className="arrow" onClick={() => decreaseProductQuantity(cartItem)}> &#10094; </span>
                 <span className="value">{quantity}</span>
-                <div
-                    className="arrow"
-                    onClick={() => increaseProductQuantity(cartItem)}
-
-                >
-                    &#10095;
-        </div>
+                <span className="arrow" onClick={() => increaseProductQuantity(cartItem)}> &#10095; </span>
             </span>
             <span className="price">{price}</span>
             <div
@@ -45,7 +34,7 @@ const CheckoutItem = ({ cartItem, removeItemAction, increaseProductQuantity,
 
 const mapDispatchToProps = dispatch => ({
     removeItemAction: (cartItem) => dispatch(removeItemFromCartAction(cartItem)),
-    increaseProductQuantity: item => dispatch(addItemToCart(item)),
+    increaseProductQuantity: item => dispatch(increaseProductCountAction(item)),
     decreaseProductQuantity: item => dispatch(decreaseProductCountAction(item))
 })
 
